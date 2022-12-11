@@ -96,7 +96,7 @@ class FitFile {
     var recordIndex = 0;
     var recordBytesRemainingCount = header.recordsSize;
     while (recordBytesRemainingCount > 0) {
-      // print('Record $recordIndex');
+      print('Record $recordIndex, bytesRemaining: $recordBytesRemainingCount');
       final remainingBytes = Uint8List.sublistView(bytes, byteOffset);
 
       final record = Record.fromBytes(definitionMessageMap, remainingBytes,
@@ -125,6 +125,7 @@ class FitFile {
             developerField.id] = developerField;
       }
 
+      print(record.toRow());
       records.add(record);
 
       final definitionMessage = definitionMessageMap[record.localId];

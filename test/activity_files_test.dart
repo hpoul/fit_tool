@@ -34,5 +34,33 @@ void main() {
         logger.d(row);
       }
     });
+
+    test('Jims workout file', () async {
+
+      final lapMessage = LapMessage()
+        ..timestamp = 1
+        ..startTime = 2
+        ..totalElapsedTime = 3.0
+        ..totalTimerTime = 4.0;
+
+      final record = Record.fromMessage(
+          DefinitionMessage.fromDataMessage(lapMessage));
+      print(record.toRow());
+
+
+      final dataRecord = Record.fromMessage(lapMessage);
+      print(dataRecord.toRow());
+
+
+
+      final file = File('./test/data/jims_workout.fit');
+      final bytes = await file.readAsBytes();
+      final fitFile = FitFile.fromBytes(bytes, checkRecords: true);
+      logger.d('Profile version: ${fitFile.header.profileVersion}');
+      fitFile.toRows();
+      for (var row in fitFile.toRows()) {
+        logger.d(row);
+      }
+    });
   });
 }
