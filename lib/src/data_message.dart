@@ -11,15 +11,14 @@ import 'profile/messages/message_factory.dart';
 abstract class DataMessage extends Message {
   DataMessage({
     this.name = '',
-    globalId = 0,
-    localId = 0,
-    endian = Endian.little,
+    super.globalId = 0,
+    super.localId = 0,
+    super.endian = Endian.little,
     this.definitionMessage,
     List<Field>? fields,
     List<DeveloperField>? developerFields,
   })  : fields = fields ?? [],
-        developerFields = developerFields ?? [],
-        super(globalId: globalId, localId: localId, endian: endian);
+        developerFields = developerFields ?? [];
 
   final String name;
   final List<Field> fields;

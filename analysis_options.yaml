@@ -12,3 +12,5 @@ include: package:lints/recommended.yaml
 analyzer:
    exclude:
      - scripts/**
+     - lib/src/profile/messages/*.dart
+     - lib/src/profile/*.dart

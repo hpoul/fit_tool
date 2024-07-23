@@ -7,16 +7,14 @@ import 'field.dart';
 
 class GenericMessage extends DataMessage {
   GenericMessage({
-    required definitionMessage,
-    developerFields,
+    super.definitionMessage,
+    super.developerFields,
   }) : super(
             name: GenericMessage.NAME,
-            globalId: definitionMessage.globalId,
-            localId: definitionMessage.localId,
-            endian: definitionMessage.endian,
-            definitionMessage: definitionMessage,
-            developerFields: developerFields,
-            fields: definitionMessage.fieldDefinitions
+            globalId: definitionMessage?.globalId ?? 0,
+            localId: definitionMessage?.localId ?? 0,
+            endian: definitionMessage?.endian ?? Endian.little,
+            fields: definitionMessage?.fieldDefinitions
                 .map<Field>((fieldDefinition) =>
                     Field.fromFieldDefinition(fieldDefinition))
                 .toList());

@@ -1,4 +1,6 @@
 @TestOn('vm')
+library;
+
 import 'dart:io';
 
 import 'package:fit_tool/fit_tool.dart';
@@ -10,7 +12,7 @@ import 'package:test/test.dart';
 void main() {
   group('activity tests', () {
     setUp(() {
-      Logger.level = Level.nothing;
+      Logger.level = Level.off;
     });
 
     test('Decode activity with deprecated messages and fields', () async {

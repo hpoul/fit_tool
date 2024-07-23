@@ -11,25 +11,16 @@ class DeveloperField extends Field {
   /// per developer. [size] describes how big the field is in bytes.
   DeveloperField({
     required this.developerDataIndex,
-    name = '',
-    id = 0,
-    type = BaseType.ENUM,
-    offset,
-    scale,
-    units = '',
-    isAccumulated = false,
-    growable = true,
-    size = 0,
-  }) : super(
-            name: name,
-            id: id,
-            type: type,
-            offset: offset,
-            scale: scale,
-            units: units,
-            isAccumulated: isAccumulated,
-            growable: growable,
-            size: size);
+    super.name = '',
+    super.id = 0,
+    super.type = BaseType.ENUM,
+    super.offset,
+    super.scale,
+    super.units = '',
+    super.isAccumulated = false,
+    super.growable = true,
+    super.size = 0,
+  });
 
   final int developerDataIndex;
 

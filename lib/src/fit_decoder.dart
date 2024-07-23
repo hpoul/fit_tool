@@ -28,9 +28,6 @@ class FitDecoder extends Converter<List<int>, Message> {
   Sink<List<int>> startChunkedConversion(Sink<Message> sink) {
     return MessageConversionSink(sink, checkCrc: checkCrc);
   }
-
-  @override
-  Stream<Message> bind(Stream<List<int>> stream) => super.bind(stream);
 }
 
 class MessageConversionSink extends ByteConversionSink {
@@ -117,9 +114,9 @@ class MessageConversionSink extends ByteConversionSink {
               developerDataIndex: message.developerDataIndex ?? 0,
               id: message.fieldDefinitionNumber ?? 0,
               type: BaseTypeExtension.fromValue(message.fitBaseTypeId ?? 0),
-              scale: message.scale,
-              offset: message.offset,
-              units: message.units,
+              scale: message.scale?.toDouble(),
+              offset: message.offset?.toDouble(),
+              units: message.units ?? '',
             );
             if (developerFieldsById[developerField.developerDataIndex] ==
                 null) {

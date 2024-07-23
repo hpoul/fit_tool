@@ -43,18 +43,14 @@ abstract class Message {
 
 class DefinitionMessage extends Message {
   DefinitionMessage({
-    endian = Endian.little,
-    globalId = 0,
-    localId = 0,
+    super.endian = Endian.little,
+    super.globalId = 0,
+    super.localId = 0,
     List<FieldDefinition>? fieldDefinitions,
     List<DeveloperFieldDefinition>? developerFieldDefinitions,
   })  : fieldDefinitions = fieldDefinitions ?? [],
         developerFieldDefinitions = developerFieldDefinitions ?? [],
-        super(
-            localId: localId,
-            globalId: globalId,
-            endian: endian,
-            size: calculateSize(fieldDefinitions, developerFieldDefinitions));
+        super(size: calculateSize(fieldDefinitions, developerFieldDefinitions));
 
   final List<FieldDefinition> fieldDefinitions;
   final List<DeveloperFieldDefinition> developerFieldDefinitions;

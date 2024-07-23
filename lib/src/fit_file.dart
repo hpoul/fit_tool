@@ -3,7 +3,6 @@ import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
 import 'package:fit_tool/src/utils/logger.dart';
-import 'package:logger/logger.dart';
 
 import 'base_type.dart';
 import 'definition_message.dart';

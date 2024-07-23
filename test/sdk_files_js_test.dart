@@ -1,4 +1,6 @@
 @TestOn('js')
+library;
+
 import 'package:csv/csv.dart';
 import 'package:fit_tool/src/fit_file.dart';
 import 'package:http/http.dart' as http;
